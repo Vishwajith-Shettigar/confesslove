@@ -1,0 +1,24 @@
+.confessionmain{
+    border: 1px solid gray;
+    padding:5px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+ margin: 10px;
+ padding:15px;
+ max-width: 20%;
+ border-radius: 10px;
+    flex-direction: column;
+}
+.fromto{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+
+.date{
+    color:gray;
+    padding:5px;
+    align-self: flex-end;
+}

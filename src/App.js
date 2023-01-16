@@ -5,6 +5,8 @@ import Share from './pages/share/Share';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Writeconfession from './pages/newconfession/Writeconfession';
+import Signup from './pages/signup/Signup';
+import Signin from './pages/signin/Signin';
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL} >
@@ -16,10 +18,15 @@ function App() {
   <Route
             path="/"
             element={
-             <Home/>
+             <Signup/>
             }
           ></Route>
-
+<Route
+            path="/share"
+            element={
+             <Share/>
+            }
+          ></Route>
 <Route
             path="/:username"
             element={

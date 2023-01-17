@@ -1,7 +1,12 @@
 import { Share } from '@mui/icons-material'
 import React from 'react'
 import './confession.css'
-function Confession() {
+import { useNavigate } from 'react-router-dom';
+import {useContext} from 'react'
+import {globalinfo} from '../../App'
+function Confession({c}) {
+  const {shareconfes,setShareconfes,theme,setTheme} = useContext(globalinfo)
+  const navigate=useNavigate();
   return (
     <div className="confessionmain">
 
@@ -14,7 +19,7 @@ function Confession() {
 
         </div>
         <div className="share">
-           <Share style={{color:"red"}}/>
+           <Share style={{color:"red"}} onClick={()=>{setShareconfes(c.text) ;setTheme(c.theme);navigate("/share")}}/>
             </div>
 
 
@@ -22,20 +27,12 @@ function Confession() {
         <div className="content">
 
             <p className="text">
-hii
-edd
-sdddwqdbwqkdbkwqdbikw
-qdgbwqdbwqdbikfdewf
-freferffrefe dwhfdwe hfwf bfduwi bfuwe bufwe bfuw bfuew bfuwe dewb Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus cum modi nesciunt accusamus autem obcaecati dolor odit labore accusantium laborum. Facilis aut necessitatibus nobis molestias illum tenetur totam consequuntur dolor?
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem amet quis cum illo accusamus quos tempora quasi, distinctio accusantium iure necessitatibus nobis facere minus possimus nemo nostrum dolorem voluptatum sunt.
-frfrefrefbge
-uirkgbeirkugbre grebgueoir
-dewdw
+{c.text}
 
             </p>
         </div>
 
-        <p className="date">23-390-20202</p>
+        <p className="date">{(c.createdAt).split("T")[0]}</p>
     </div>
   )
 }

@@ -1,6 +1,14 @@
 import React, {useRef} from 'react'
 import './signup.css'
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
+import {useContext} from 'react'
+import {globalinfo} from '../../App'
 function Signup() {
+    const {user,setUser}=useContext(globalinfo)
+
+    const BP=process.env.REACT_APP_API_KEY;
+const navigate=useNavigate();
     const username=useRef();
     const email=useRef();
     const password=useRef();
@@ -17,19 +25,29 @@ const handleLogin=async(e)=>
  password.current.setCustomValidity("Password don't match");
     }else{
        
-           const user={
-            username:username.current.value,
-            email:email.current.value,
-            password:password.current.value
+         
+           
             
-           }
+        
           try{
-          
+            const res=await axios.post(BP+"/auth/signup",{
+                username:username.current.value,
+                email:email.current.value,
+                password:password.current.value
+            });
+
+        if(res!=403 && res!=500)
+        {
+            setUser(res.data.username);
+            navigate("/")
+        }
+
           }
 
 catch(e){
     
 
+window.alert("Username already taken")
 }
     }
     

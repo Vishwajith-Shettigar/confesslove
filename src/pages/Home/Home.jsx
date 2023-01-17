@@ -1,9 +1,44 @@
 import { ContentCopyOutlined, FacebookRounded, Instagram, WhatsApp, WhatshotRounded } from '@mui/icons-material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Confession from '../../components/confession/Confession'
 import Navbar from '../../components/Navbar/Navbar'
 import './home.css'
+import {useContext} from 'react'
+import {globalinfo} from '../../App'
+import axios from 'axios'
 function Home() {
+  const {user,setUser}=useContext(globalinfo);
+const [confessions,setConfessions]=useState([]);
+const BP=process.env.REACT_APP_API_KEY;
+  console.log(user);
+
+
+
+useEffect(()=>{
+
+const getcon=async()=>{
+
+
+
+  try{
+   const res=await axios.get(BP+`/confession/get?username=${user}`);
+  
+   console.log("res")
+   setConfessions(res.data);
+   console.log(confessions[0].text)
+  }
+   catch(e) {{
+
+   }}
+  }
+
+  getcon();
+},[])
+ 
+
+
+
+if(user)
   return (
     <div className = 'Homemain'>
 
@@ -18,7 +53,7 @@ function Home() {
 
         <div className="usernamesection">
 
-          <h3>Hola vish</h3>
+          <h3>Hola {user}</h3>
         </div>
         <div className="linkcopysection">
 
@@ -26,7 +61,7 @@ function Home() {
           <div className="copylink">
 
 
-            <a href="#"> https://www.confeslove.com/vishdark</a>
+            <a href={`http://localhost:3000/${user}`}> http://localhost:3000/{user}</a>
             <ContentCopyOutlined />
           </div>
         </div>
@@ -59,12 +94,16 @@ function Home() {
 
 <h3>Here is your lovely confessions</h3>
 <div className="confessions-items">
-<Confession/>
-<Confession/>
-<Confession/>
-<Confession/>
-<Confession/>
-<Confession/>
+
+
+{
+
+confessions &&  confessions.map((c)=>(
+
+    <Confession c={c} />
+))
+  
+}
 </div>
 </div>
     </div>

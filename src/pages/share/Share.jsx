@@ -2,22 +2,29 @@ import { Button } from '@mui/material'
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './share.css'
+import { useNavigate } from 'react-router-dom';
+import {useContext} from 'react'
+import {globalinfo} from '../../App'
 function Share() {
+    const {shareconfes,setShareconfes,theme,setTheme}=useContext(globalinfo);
+    let fcolor="black";
+    if(theme=="six")
+    {
+        fcolor="white"
+    }
+    else{
+        fcolor="black";
+    }
+
     return (
 
         <div className='containersharemain'>
             <Navbar />
 
             <div className='containershare'>
-                <div className='image'>
-<div className='from'>
+                <div className='image' style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}}>
 
-    Anonymous
-</div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, reprehenderit distinctio quia commodi eius asperiores temporibus aliquid possimus molestiae porro iste. Omnis, cum! Aspernatur reiciendis, ex enim cumque blanditiis inventore.
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quod nobis, deserunt at repudiandae quae assumenda blanditiis accusamus itaque id doloribus, voluptatem nihil a facere fugiat ex facilis amet. Asperiores.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, excepturi mollitia distinctio temporibus ratione sint reiciendis libero, iusto neque placeat, qui doloribus ad deserunt ipsa minima rem rerum. Et, odio.
-                    
+                 {shareconfes}
                 </div>
                 <button className='sharebtn'>Share</button>
             </div>

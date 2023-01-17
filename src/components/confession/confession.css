@@ -9,6 +9,7 @@
  max-width: 20%;
  border-radius: 10px;
     flex-direction: column;
+    word-break: break-all;
 }
 .fromto{
     display: flex;

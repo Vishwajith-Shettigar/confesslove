@@ -1,16 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './writeconfession.css'
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 function Writeconfession() {
+    const BP=process.env.REACT_APP_API_KEY;
 const [username,setUsername]=useState(null)
+const text=useRef();
 const params = useParams();
     useEffect(()=>{
 
-         
+        const getuser=async()=>{
+
+
+
+            try{
+             const res=await axios.post(BP+`/auth/getuser`,{username:params.username});
+            
+            setUsername(res.data.username)
+            }
+             catch(e) {{
+          
+             }}
+            }
+          
+            getuser();
     
 
-    })
+    },[])
 const [theme,setTheme]=useState("eight");
 const [fcolor,setFcolor]=useState("black")
     const selectTheme=(e)=>{
@@ -27,6 +44,20 @@ setTheme(e.target.name)
 
     }
 
+    const share=async()=>{
+
+        try{
+            console.log(username,text,theme)
+            const res=await axios.post(BP+"/confession/save",{username:username,text:text.current.value,theme:theme});
+           console.log(res)
+         
+           }
+            catch(e) {{
+         console.log(e)
+            }}
+
+    }
+
    if( username!=null && theme && fcolor)
     return (
     
@@ -36,10 +67,10 @@ setTheme(e.target.name)
             <Navbar />
             <div className="writeconfessioncontainer">
                 <div className="writeconfessionsec1">
-                    <h1 className='writeconfessiontitle'>Confess your love to $$$$</h1>
-                    <p className='writeconfessionsub'> Your identity is not revealed or stored with  { }</p>
-                    <textarea  maxLength={800}  style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}} className="writeconfession" placeholder="confess your love to {   }" />
-                    <button className="writeconfessionbtn">Share </button>
+                    <h1 className='writeconfessiontitle'>Confess your love to {username}</h1>
+                    <p className='writeconfessionsub'> Your identity is not revealed or stored </p>
+                    <textarea ref={text} maxLength={800}  style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}} className="writeconfession" placeholder="confess your love to {   }" />
+                    <button className="writeconfessionbtn" onClick={()=>share()}>Share </button>
                 </div>
  
                <div className="writeconfessionsec2">
@@ -71,7 +102,7 @@ setTheme(e.target.name)
             <Navbar />
             <div className="writeconfessioncontainer">
                 <div className="writeconfessionsec1">
-                    <h1 className='writeconfessiontitle'>no confession room exists named $$$</h1>
+                    <h1 className='writeconfessiontitle'>no confession room exists named {params.username}</h1>
                     <p className='writeconfessionsub'> click here to create your own confession room</p>
                   
                 </div>

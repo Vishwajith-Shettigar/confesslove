@@ -33,7 +33,7 @@ const getcon=async()=>{
   }
 
   getcon();
-},[])
+},[user])
  
 
 
@@ -98,7 +98,7 @@ if(user)
 
 {
 
-confessions &&  confessions.map((c)=>(
+  confessions.map((c)=>(
 
     <Confession c={c} />
 ))

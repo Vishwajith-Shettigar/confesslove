@@ -1,0 +1,122 @@
+.settingcon{
+
+}
+
+.setting{
+    display:flex;
+    flex-direction:column;
+    width: 90%;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+
+.userupdate{
+    display:flex;
+    flex-direction:column;
+    margin: 40px;
+    padding: 20px;
+    width: 40%;
+
+}
+
+.passupdate{
+    display:flex;
+    flex-direction:column;
+    margin: 40px;
+    padding: 20px;
+    width: 40%;
+
+}
+
+.username{
+    display:flex;
+    
+ width: 100%;
+ align-items: center;
+ justify-content:space-between;
+ padding: 10px;
+}
+.username input{
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+}
+.email{
+    display:flex;
+    
+ width: 100%;
+ align-items: center;
+ padding: 10px;
+ justify-content:space-between;
+}
+.email input{
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+}
+.updateprofilebtn{
+    margin-top: 10px;
+    width: 20%;
+    padding: 6px;
+    border-radius: 40px;
+}
+
+.toast{
+   
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top:6px;
+  padding-bottom: 10px;
+background-color: rgb(225, 225, 219);
+color: black;
+border-radius:100px;
+
+  
+}
+
+
+.oldpass{
+    display:flex;
+    
+ width: 100%;
+ align-items: center;
+ justify-content:space-between;
+ padding: 10px;
+}
+
+.oldpass input{
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+}
+.newpass{
+    display:flex;
+    
+ width: 100%;
+ align-items: center;
+ padding: 10px;
+ justify-content:space-between;
+}
+.newpass input{
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.updatepassbtn{
+    margin-top: 10px;
+    width: 30%;
+    padding: 5px;
+    border-radius: 40px;
+}

@@ -15,7 +15,7 @@ const params = useParams();
 
 
             try{
-             const res=await axios.post(BP+`/auth/getuser`,{username:params.username});
+             const res=await axios.post(BP+`/auth/getwriteuser`,{username:params.username});
             
             setUsername(res.data.username)
             }

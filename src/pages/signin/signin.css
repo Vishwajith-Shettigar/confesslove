@@ -83,3 +83,9 @@
     font-weight: 500;
     cursor: pointer; 
 }
+
+.loginRegister a{
+
+text-decoration: none;
+color: white;
+}

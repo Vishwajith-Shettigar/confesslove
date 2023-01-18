@@ -5,7 +5,7 @@ import {  useNavigate } from 'react-router-dom';
 import {useContext} from 'react'
 import {globalinfo} from '../../App'
 function Signup() {
-    const {user,setUser}=useContext(globalinfo)
+    const {user,setUser,setJwtToken}=useContext(globalinfo)
 
     const BP=process.env.REACT_APP_API_KEY;
 const navigate=useNavigate();
@@ -39,6 +39,7 @@ const handleLogin=async(e)=>
         if(res!=403 && res!=500)
         {
             setUser(res.data.username);
+            setJwtToken("userId",res.data._id,{maxAge: 172800});
             navigate("/")
         }
 
@@ -70,7 +71,7 @@ window.alert("Username already taken")
                 <input required type="password" ref={password} placeholder='Password' className="sloginInput" />
                 <input required type="password" ref={comPassword} placeholder='Confirm password' className="sloginInput" />
      <button type='submit' className="sloginButton">Sign up</button>
-     <button className="sloginRegister" >Log in</button>
+     <button className="sloginRegister" ><a href="signin"> Log in </a> </button>
             </form>
         </div>
     </div>

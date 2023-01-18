@@ -2,6 +2,7 @@ import React from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { EmojiEmotions, Settings } from '@mui/icons-material';
 import "./navbar.css"
+import { color } from '@mui/system';
 function Navbar() {
     return (
         <div className="navbar">
@@ -20,11 +21,11 @@ function Navbar() {
             <div className="navbar-right">
                 <div className="navbar-profile">
 
-                <AccountCircleIcon/>
+               <a href="/" style={{textDecoration:"none",color:"black"}}> <AccountCircleIcon/></a>
             
                 </div>
                 <div className="navbar-setting">
-<Settings/>
+                <a href="/user/setting" style={{textDecoration:"none",color:"black"}}><Settings/></a>
 
 
                 </div>

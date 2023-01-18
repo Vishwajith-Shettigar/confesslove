@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {useContext} from 'react'
 import {globalinfo} from '../../App'
 function Signin() {
-    const {user,setUser}=useContext(globalinfo)
+    const {user,setUser,setJwtToken}=useContext(globalinfo)
     const BP=process.env.REACT_APP_API_KEY;
     const email= useRef();
     const password=useRef();
@@ -23,6 +23,7 @@ function Signin() {
         if(res!=403 && res!=500 && res!=400)
         {
             setUser(res.data.username);
+            setJwtToken("userId",res.data._id,{maxAge: 172800});
             navigate("/")
         }
 
@@ -51,7 +52,7 @@ window.alert("Invalid details")
                 <input minLength={6} required placeholder='Password' type="password" className="loginInput" ref={password} />
      <button className="loginButton">  {"Log in"}</button>
     
-     <button type='submit' className="loginRegister">Create new account</button>
+     <button type='submit' className="loginRegister"><a href="/signup">Create new account</a></button>
             </form>
         </div>
     </div>

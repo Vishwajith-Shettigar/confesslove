@@ -87,6 +87,11 @@
     font-weight: 500;
     cursor: pointer; 
 }
+.sloginRegister a{
+
+    text-decoration: none;
+    color: white
+}
 
 @media screen and (max-width: 600px ) {
 

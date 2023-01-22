@@ -40,11 +40,11 @@ console.log("oo")
         const userinfo={
 
             "username":eusername.current.value,
-            "email":eemail.current.value
+           
         }
+        try{
         const res = await axios.post(BP + `/auth/updateprofile`, { "id":jwtToken.userId,"userinfo": userinfo})
-setUser(res.data.username);
-
+        setUser(res.data.username);
 
         setIsEdit(!isedit);
 
@@ -52,6 +52,15 @@ setUser(res.data.username);
         setTimeout(()=>{
                 setShowToast(false);
         },2000)
+
+        }
+        catch (e) {
+  window.alert("user info already in use")
+
+
+
+        }
+
      }
 
 
@@ -92,8 +101,8 @@ setUser(res.data.username);
                         <input type="text" defaultValue={user} ref={eusername} readOnly={isedit} />
                     </div>
                     <div className="email">
-                        <span>Email</span>
-                        <input type="text" defaultValue={email} ref={eemail} readOnly={isedit} />
+                        {/* <span>Email</span>
+                        <input type="text" defaultValue={email} ref={eemail} readOnly={isedit} /> */}
                     </div>
 
                     {

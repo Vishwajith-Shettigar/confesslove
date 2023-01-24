@@ -1,6 +1,6 @@
 import { CircleOutlined } from '@mui/icons-material'
 import React , {useRef}from 'react'
-import './signin.css'
+import '../signup/signup.css'
 import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useContext} from 'react'
@@ -39,20 +39,20 @@ window.alert("Invalid details")
 
 
   return (
-    <div className='login'>
-    <div className="loginWrapper">
-        <div className="loginLeft">
-            <h3 className="loginLogo">ConfessLove</h3>
-            <span className="loginDesc"></span>
+    <div className='slogin'>
+    <div className="sloginWrapper">
+        <div className="sloginLeft">
+            <h3 className="sloginLogo">ConfessLove</h3>
+            <span className="sloginDesc">Confess your love to your loved one anonymously</span>
         </div>
-        <div className="loginRight">
+        <div className="sloginRight">
     
-            <form onSubmit={handleLogin} method="post" className="loginBox">
-                <input  required placeholder='Email' type="email" className="loginInput" ref={email}/>
-                <input minLength={6} required placeholder='Password' type="password" className="loginInput" ref={password} />
-     <button className="loginButton">  {"Log in"}</button>
-    
-     <button type='submit' className="loginRegister"><a href="/signup">Create new account</a></button>
+            <form onSubmit={handleLogin} method="post" className="sloginBox">
+                <input  required placeholder='Email' type="email" className="sloginInput" ref={email}/>
+                <input minLength={6} required placeholder='Password' type="password" className="sloginInput" ref={password} />
+     <button className="sloginButton">  {"Log in"}</button>
+   <span> Dont have account ?</span>
+     <button type='submit' className="sloginRegister"><a href="/signup">Sign up</a></button>
             </form>
         </div>
     </div>

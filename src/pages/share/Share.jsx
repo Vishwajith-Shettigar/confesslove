@@ -1,8 +1,10 @@
 import { Button } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState ,useRef} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './share.css'
 import { render } from 'react-dom'
+
+import { toBlob } from "html-to-image";
 import * as htmlToImage from 'html-to-image'
 import { useNavigate } from 'react-router-dom';
 import {useContext} from 'react'
@@ -61,6 +63,7 @@ var node=document.getElementById('node')
 function Share() {
     const {shareconfes,setShareconfes,theme,setTheme}=useContext(globalinfo);
     
+    const imageRef = useRef(null);
 
     let fcolor="black";
     const [file,setFile]=useState();
@@ -72,30 +75,51 @@ function Share() {
         fcolor="black";
     }
 
-    const convertdivtoimg=()=>{
+    const convertdivtoimg=async()=>{
 
-        htmlToImage.toPng(node)
-        .then(function(dataUrl){
+       
+     
 
-           var img=new Image();
-            img.src=dataUrl;
-            console.log(img.src);
-          
-           setFile(img);
+
+//  htmlToImage.toPng(node)
+//         .then( function(dataUrl){
+
+//            var img=new Image();
+//             img.src=dataUrl;
+//        document.body.appendChild(img);
            
-        navigator
-        .share({
-          title: 'Example Image',
-          text: 'Check out this image',
-          url: '',
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing:', error));
+          
+       
+//         })
+//         .catch((err)=>{
+//             // console.log(err)
+//         })
 
-        })
-        .catch((err)=>{
-            // console.log(err)
-        })
+
+        
+//second
+
+const newFile = await toBlob(imageRef.current);
+const data = {
+  files: [
+    new File([newFile], "nuzlocke.png", {
+      type: newFile.type
+    })
+  ],
+  title: "Nuzlocke",
+  text: "Nuzlocke"
+};
+
+try {
+  if (!navigator.canShare(data)) {
+    console.error("Can't share");
+  }
+  await navigator.share(data);
+} catch (err) {
+  console.error(err);
+}
+
+
 
       
     }
@@ -105,7 +129,7 @@ function Share() {
             <Navbar />
 
             <div className='containershare'>
-                <div className='image' id="node" style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}}>
+                <div className='image' id="node" ref={imageRef} style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}}>
 
                  {shareconfes}
                 </div>

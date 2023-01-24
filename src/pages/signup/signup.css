@@ -1,128 +1,183 @@
 .slogin{
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(to left, rgba(58, 199, 114, 0), rgb(232, 91, 232));
+    width:100vw;
+    height:100vh;
+    background-color:  rgb(232, 91, 232);
+    overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .sloginWrapper{
-    width: 70%;
-    height: 70%;
-    display: flex;
-    
-    
 
+width: 100%;
+height: 100%;
+    display: flex;
+    flex-direction: row;
+    
+   
+    
 }
 
-.sloginLeft,.sloginRight{
-    flex: 1;
+.sloginLeft{
+    height: 100%;
+    flex: 5;
+  
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
+    align-items: center;
+    justify-content:center;
 
+}
 .sloginLogo{
-    font-size: 50px;
-    font-weight: 800;
-    color: #1775ee;
-    margin-bottom: 10px;
 
+    font-size: 60px;
+    padding: 10px;
+    color: #0064e6;
 }
-
 .sloginDesc{
-   font-size: 24px; 
+    color: rgb(31, 31, 49);
+    font-weight: 500;
+}
+.sloginRight{
+    height: 100%;
+    flex: 6;
+    width: 100%;
+  
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+   
 }
 
 .sloginBox{
-    background-image: linear-gradient(to right, rgba(58, 199, 114, 0), rgb(154, 133, 214));
-
-    height: 500px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
+   padding: 10px;
+width: 70%;
+height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    border: 2px solid rgb(120, 100, 206);;
+       background-image: linear-gradient(to left, rgba(58, 199, 114, 0.1), rgb(120, 100, 206));
+
+     align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 
 }
 
 .sloginInput{
-    height: 50px;
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
-    border: 1px solid gray;
-    font-size: 19px;
-    padding-left: 20px;
+    border-color: violet;
 }
 
 .sloginButton{
-    height: 50px;
     border-radius: 10px;
-    border: none;
-    background-color: #1775ee;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-
-}
-
-.sloginForgot{
-    text-align: center;
-    color: #1775ee;
-}
-
-.sloginRegister
-{
-    height: 50px;
+    border-color: rgb(119, 99, 192);
     width: 60%;
-    align-self: center;
-    border-radius: 10px;
-    border: none;
-    background-color: #5f91d2;
-    color: white;
+    padding: 10px;
+    margin: 10px;
+    background-color: #4583d4;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
     font-size: 20px;
-    font-weight: 500;
-    cursor: pointer; 
 }
+
+.sloginRegister{
+
+    border-radius: 10px;
+    border-color: rgb(70, 42, 169);
+    width: 40%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #7ba7e2;
+    margin-top: 20px;
+    color: rgb(35, 214, 80);
+    font-weight: 300;
+    font-size: 20px;
+
+}
+
 .sloginRegister a{
-
     text-decoration: none;
-    color: white
+    color: rgb(85, 59, 201)
+
 }
 
-@media screen and (max-width: 600px ) {
 
-  
-    .sloginWrapper{
-        flex-direction:column;
-        width: 90%;
-        height: 100%;
-        align-items:center;
-        justify-content: center;
-    }
+@media (max-width: 920px){
 
-    .sloginLogo{
-        font-size: 30px;
+    .sloginLeft{
+     
+        flex: 3;
+      
        
-        margin-bottom: 10px;
     
     }
 
+    .sloginLogo{
+
+        font-size: 50px;
+       
+    }
+
+    .sloginRight{
+justify-content: flex-end;
+padding-right: 10px;
+    }
     .sloginDesc{
-        font-size: 14px; 
-        align-self: center;
-        justify-self: right;
-        margin-left: 20%;
-     }
-     .sloginLeft{
-        width:100%;
-            align-items: center;
-            justify-content: center;
-            
+       align-items: center;
+       justify-content: center;
+       padding: 10px;
+    }    
 
-     }
+}
 
+@media (max-width: 701px){
+
+    .sloginLogo{
+
+        font-size: 40px;
+       
+    }
+
+    .sloginRight{
+        flex: 4;
+        justify-content: flex-start;
+        padding-right: 10px;
+            }
+
+
+}
+
+@media (max-width: 630px){
+  
+    .sloginBox{
+        width: 80%;
+        height: 90%;
+        padding-top: 30PX;
+
+    }
+
+    .sloginWrapper{
+flex-direction: column;
+    }
+
+    .sloginRight{
+justify-content: center;
+    }
+
+    .sloginInput{
+width: 90%;
+border-radius: 6px;
+    }
+    .sloginDesc{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 200;
+      
+     }
 }

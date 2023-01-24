@@ -1,4 +1,4 @@
-import { ContentCopyOutlined, FacebookRounded, Instagram, WhatsApp, WhatshotRounded } from '@mui/icons-material'
+import { ContentCopyOutlined, FacebookRounded, Instagram, Telegram, WhatsApp, WhatshotRounded } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import Confession from '../../components/confession/Confession'
 import Navbar from '../../components/Navbar/Navbar'
@@ -6,6 +6,53 @@ import './home.css'
 import {useContext} from 'react'
 import {globalinfo} from '../../App'
 import axios from 'axios'
+
+import {
+
+  FacebookShareButton,
+
+  InstapaperShareButton,
+
+
+
+
+  OKShareButton,
+  PinterestShareButton,
+
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+
+
+  WhatsappShareButton,
+
+} from "react-share";
+
+
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
 function Home() {
   const {user,setUser}=useContext(globalinfo);
 const [confessions,setConfessions]=useState([]);
@@ -73,14 +120,27 @@ if(user)
 
             <div className="facebook">
 
+            
+              <FacebookShareButton quote="confessLove" hashtag ="Confess" url='https://www.facebook.com/'>
+
               <FacebookRounded style={{ color: "blue" }} />
+              </FacebookShareButton>
             </div>
 
             <div className="instagram" >
-              <Instagram style={{ color: "red" }} />
+
+              <TelegramShareButton quote=" confessLove "url='https://www.facebook.com/'>
+
+                   <Telegram style={{ color: "blue" }} />
+              </TelegramShareButton>
+           
             </div>
             <div className="whatsapp">
-              <WhatsApp style={{ color: "green" }} />
+              <WhatsappShareButton  quote="confessLove" hashtag ="Confess" url='https://www.facebook.com/' >
+
+                 <WhatsApp style={{ color: "green" }} />
+              </WhatsappShareButton>
+             
             </div>
 
           </div>

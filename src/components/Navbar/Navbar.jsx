@@ -3,7 +3,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { EmojiEmotions, Settings } from '@mui/icons-material';
 import "./navbar.css"
 import { color } from '@mui/system';
+import {useContext} from 'react'
+import {globalinfo} from '../../App'
 function Navbar() {
+
+    const {removeCookie}=useContext(globalinfo);
+
     return (
         <div className="navbar">
 
@@ -30,7 +35,7 @@ function Navbar() {
 
                 </div>
                 <div className="navbar-logout">
-<h5>logout</h5>
+<h5 onClick={()=>removeCookie(["userId"])}>logout</h5>
                 </div>
             </div>
         </div>

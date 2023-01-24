@@ -61,7 +61,7 @@ window.alert("Username already taken")
     <div className="sloginWrapper">
         <div className="sloginLeft">
             <h3 className="sloginLogo">ConfessLove</h3>
-            <span className="sloginDesc"></span>
+            <span className="sloginDesc">Confess your love to your loved one anonymously</span>
         </div>
         <div className="sloginRight">
     
@@ -71,6 +71,7 @@ window.alert("Username already taken")
                 <input required type="password" ref={password} placeholder='Password' className="sloginInput" />
                 <input required type="password" ref={comPassword} placeholder='Confirm password' className="sloginInput" />
      <button type='submit' className="sloginButton">Sign up</button>
+     <span> Already have account ?</span>
      <button className="sloginRegister" ><a href="signin"> Log in </a> </button>
             </form>
         </div>

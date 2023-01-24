@@ -114,7 +114,7 @@ if(user)
         </div>
 
         <div className="linkssharesection">
-          <h4>Share your link on social media</h4>
+          <h4>share with social media</h4>
           <div className="socialmedia">
 
 

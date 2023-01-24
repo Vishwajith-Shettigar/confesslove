@@ -23,3 +23,11 @@
     padding:5px;
     align-self: flex-end;
 }
+
+@media (max-width:400px){
+    .confessionmain{
+        max-width: 100%;
+
+
+    }
+}

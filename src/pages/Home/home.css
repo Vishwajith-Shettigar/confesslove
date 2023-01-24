@@ -1,10 +1,13 @@
 
 .container{
 
+
     background-image: linear-gradient(to left, rgba(58, 199, 114, 0), rgb(25, 190, 146));
 
 }
 .home{
+  
+  
     padding:20px;
     margin: 20px;
    margin-bottom: 0;
@@ -19,6 +22,7 @@
 margin-top: 10px;
 padding: 30px;
 margin-bottom: 10px;
+font-family: 'Courier New', Courier, monospace;
 
 
 }
@@ -29,6 +33,7 @@ margin-bottom: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .copylink{
@@ -40,6 +45,7 @@ margin-bottom: 10px;
 }
 
 .linkssharesection{
+    font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
     padding-top: 10px;
@@ -74,4 +80,56 @@ margin-bottom: 10px;
    flex-wrap:wrap ;
     margin: 10px;
     padding: 10px;
+}
+
+.confessions h3{
+
+
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    text-align: center;
+    font-weight:700;
+  ;
+    color: rgba(126, 8, 237, 0.512);
+}
+
+
+@media (max-width:400px){
+
+
+    .usernamesection{
+      text-align: center;
+        align-items: center;
+        justify-content: center;
+        
+        }
+
+        .linkcopysection p{
+
+            text-align: center;
+        }
+
+        .copylink{
+align-items: center;
+justify-content: center;
+            display: flex;
+            flex-wrap:wrap;
+            padding: 10px;
+        }
+
+        .copylink a{
+
+            padding: 10px;
+        }
+       
+        
+        .confessions-items{
+        
+           display: flex;
+           flex-direction: column;
+           padding: 3px;
+           margin: 2px;
+         
+        }
+
 }

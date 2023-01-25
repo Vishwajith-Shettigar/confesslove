@@ -52,3 +52,44 @@
    
 
 }
+
+@media( max-width:857px){
+    .image{
+width: 500px;
+height: 500px;
+font-size: 16px;
+    }
+
+}
+@media( max-width:670px){
+
+
+    .image{
+        width: 400px;
+        height: 400px;
+        font-size: 13px;
+            }
+}
+
+@media( max-width:512px){
+    .containershare{
+margin-top: 130px;
+    }
+
+    .image{
+        width: 300px;
+        height: 300px;
+        font-size: 10px;
+
+            }
+}
+
+@media( max-width:327px){
+    .image{
+        width: 270px;
+        height: 270px;
+        font-size: 9px;
+
+            }
+
+}

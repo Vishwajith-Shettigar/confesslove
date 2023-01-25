@@ -5,7 +5,8 @@
     margin: 0px;
     padding: 10px;
     align-items: flex-start;
-   
+   width: 100%;
+
     justify-content: flex-start;
 flex-wrap: wrap;
 
@@ -83,4 +84,86 @@ scroll-margin-block: 5px;
 }
 
 
+@media( max-width:868px){
+    .writeconfessioncontainer{
 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+}
+
+@media( max-width:560px){
+
+    .writeconfessioncontainer{
+  background-color: aqua;
+  
+        /* background-image: linear-gradient(to left, rgba(97, 85, 189, 1.2), rgb(232, 91, 232)); */
+
+    }
+
+    .writeconfessionsec1{
+margin-top: 40px;
+    }
+
+   
+    .writeconfession{
+
+        min-width: 400px;
+        min-height:400px;
+        max-width: 400px;
+    
+       max-height:400px;
+       margin-bottom: 10px;
+
+    }
+    
+    .writeconfessiontitle{
+        margin-bottom:10px;
+    }
+    
+    .writeconfessionsub{
+        margin-bottom: 10px;
+    }
+
+}
+
+@media( max-width:445px){
+
+    .writeconfession{
+
+        min-width: 300px;
+        min-height:300px;
+        max-width: 300px;
+    
+       max-height:300px;
+       margin-bottom: 10px;
+
+    }
+
+    .writeconfessiontitle{
+       font-size: 20px;
+    }
+    .writeconfessionthemeimage{
+width: 200px;
+height: 200px;
+    }
+
+}
+@media( max-width:329px){
+    .writeconfession{
+
+        min-width: 250px;
+        min-height:250px;
+        max-width: 250px;
+    
+       max-height:250px;
+       margin-bottom: 10px;
+       margin: 2px;
+
+    }
+
+}

@@ -1,8 +1,9 @@
-import { ContentCopyOutlined, FacebookRounded, Instagram, Telegram, WhatsApp, WhatshotRounded } from '@mui/icons-material'
+import { ContentCopyOutlined, CopyAll, CopyAllOutlined, FacebookRounded, Instagram, Telegram, WhatsApp, WhatshotRounded } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import Confession from '../../components/confession/Confession'
 import Navbar from '../../components/Navbar/Navbar'
 import './home.css'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {useContext} from 'react'
 import {globalinfo} from '../../App'
 import axios from 'axios'
@@ -58,7 +59,7 @@ function Home() {
 const [confessions,setConfessions]=useState([]);
 const BP=process.env.REACT_APP_API_KEY;
   console.log(user);
-
+const [copied,setcopied]=useState(false);
 
 
 useEffect(()=>{
@@ -109,7 +110,22 @@ if(user)
 
 
             <a href={`http://localhost:3000/${user}`}> http://localhost:3000/{user}</a>
-            <ContentCopyOutlined />
+
+            
+        <CopyToClipboard text={`http://localhost:3000/${user}`}
+          onCopy={() =>{
+            
+            setcopied(true);
+           setTimeout(()=>{setcopied(false)
+          
+          },3000)
+           
+           }}
+           >
+      {   !copied ?<ContentCopyOutlined />: <span>copied</span>
+      }
+        </CopyToClipboard>
+            
           </div>
         </div>
 

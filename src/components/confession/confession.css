@@ -10,6 +10,7 @@
  border-radius: 10px;
     flex-direction: column;
     word-break: break-all;
+    font-style: oblique;
 }
 .fromto{
     display: flex;
@@ -24,10 +25,35 @@
     align-self: flex-end;
 }
 
-@media (max-width:400px){
+.text{
+
+    display: block;
+   
+    overflow: hidden;
+   
+ 
+    max-height: 106px;
+    
+   
+}
+
+
+@media (max-width:1028px){
+
+
+    .confessionmain{
+        
+max-width: 40%;
+
+    }
+  
+
+}
+
+@media (max-width:515px){
     .confessionmain{
         max-width: 100%;
-
+        width: fit-content;
 
     }
 }

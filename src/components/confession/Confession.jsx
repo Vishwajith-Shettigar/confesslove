@@ -8,7 +8,7 @@ function Confession({c}) {
   const {shareconfes,setShareconfes,theme,setTheme} = useContext(globalinfo)
   const navigate=useNavigate();
   return (
-    <div className="confessionmain">
+    <div className="confessionmain" onClick={()=>{setShareconfes(c.text) ;setTheme(c.theme);navigate("/share")}}>
 
 <div className="fromto">
 
@@ -27,7 +27,9 @@ function Confession({c}) {
         <div className="content">
 
             <p className="text">
-{c.text}
+{
+(c.text).length>=89?c.text.substring(0,89)+"...":c.text
+}
 
             </p>
         </div>

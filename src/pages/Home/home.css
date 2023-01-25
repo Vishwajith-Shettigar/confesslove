@@ -1,8 +1,9 @@
 
 .container{
 
-
+background-color: aquamarine;
     background-image: linear-gradient(to left, rgba(58, 199, 114, 0), rgb(25, 190, 146));
+width: 100%;
 
 }
 .home{
@@ -60,16 +61,16 @@ font-family: 'Courier New', Courier, monospace;
 
 .confessions{
     margin-top: 0;
-   
+    overflow: hidden;
     padding: 10px;
     padding-top: 40px;
     align-items: center;
     justify-content:center;
     display: flex;
 
-    width: 100%;
+
     flex-direction: column;
-    background-image: linear-gradient(to right, rgba(58, 199, 114, 0), rgb(193, 127, 205));
+    background-image: linear-gradient(to right, rgba(58, 199, 114, 0), rgb(204, 157, 212));
 
    
 }
@@ -94,9 +95,25 @@ font-family: 'Courier New', Courier, monospace;
 }
 
 
+@media (max-width:1028px){
+  
+    .confessions{
+
+background-color: rgb(85, 229, 245);
+
+    }
+    .confessions-items{
+        
+width: 100%;
+flex-wrap: wrap;
+
+    }
+  
+
+}
 @media (max-width:400px){
 
-
+   
     .usernamesection{
       text-align: center;
         align-items: center;

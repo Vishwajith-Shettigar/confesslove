@@ -1,6 +1,3 @@
-.settingcon{
-
-}
 
 .setting{
     display:flex;
@@ -66,6 +63,7 @@
     width: 20%;
     padding: 6px;
     border-radius: 40px;
+    cursor: pointer;
 }
 
 .toast{
@@ -119,4 +117,84 @@ border-radius:100px;
     width: 30%;
     padding: 5px;
     border-radius: 40px;
+    cursor: pointer;
+}
+
+
+.logoutbtn{
+
+    width: 100px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgb(203, 172, 172);
+    color: rgb(91, 36, 255);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width:950px){
+
+
+    .updateprofilebtn{
+
+        border-radius: 10px;
+
+    }
+
+    .updatepassbtn{
+
+border-radius: 10px;
+    }
+
+    .userupdate{
+width: 80%;
+    }
+
+    .passupdate{
+        width: 80%;
+    }
+
+}
+
+@media (max-width:400px){
+
+    .username {
+        font-size:14px;
+        padding:3px;
+    }
+    .username input{
+margin-left: 6px;
+    }
+    .updateprofilebtn{
+font-size: 13px;
+width: 90px;
+
+    }
+
+    .updatepassbtn{
+
+        font-size: 13px;
+        width: 90px;
+    }
+    .oldpass{
+        font-size:14px;
+        padding:3px;
+    }
+
+    .oldpass input{
+        margin-left: 6px;
+
+    }
+
+    .newpass{
+        font-size:14px;
+        padding:3px;
+    }
+    .newpass input{
+        margin-left: 6px;
+
+    }
+
+
+
 }

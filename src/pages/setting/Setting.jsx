@@ -5,7 +5,7 @@ import { globalinfo } from '../../App'
 import axios from 'axios'
 import './setting.css'
 function Setting() {
-    const { user, setUser, jwtToken } = useContext(globalinfo);
+    const { user, setUser, jwtToken,removeCookie } = useContext(globalinfo);
     const [email, setEmail] = useState(null);
     const [pass, setPass] = useState(null);
     const [isedit, setIsEdit] = useState(true);
@@ -108,7 +108,7 @@ console.log("oo")
                     {
                         isedit ?
 
-                            <button className="updateprofilebtn" onClick={()=>handleEdit()}>update profile</button>
+                            <button className="updateprofilebtn" onClick={()=>handleEdit()}>update </button>
                             :
                             <button className="updateprofilebtn" onClick={()=>handleSave()}>save</button>
                     }
@@ -121,17 +121,20 @@ console.log("oo")
   <div className="toast" style={{backgroundColor:"white" ,color:"white"}}>Password</div>
   
   }
+    <button className="logoutbtn" onClick={()=>{removeCookie(["userId"]); console.log("hbio")}}>log out</button>
+ 
                 <div className="passupdate">
-
+                  
+ <hr/>
                     <h3>Change password</h3>
 
                     <div className="oldpass">
                         <span>old password</span>
-                        <input type="text" ref={epass} />
+                        <input type="password" ref={epass} />
                     </div>
                     <div className="newpass">
                         <span>New password</span>
-                        <input type="text" ref={ecpass} />
+                        <input type="password" ref={ecpass} />
                     </div>
 
 

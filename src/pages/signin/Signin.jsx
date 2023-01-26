@@ -52,7 +52,7 @@ window.alert("Invalid details")
                 <input minLength={6} required placeholder='Password' type="password" className="sloginInput" ref={password} />
      <button className="sloginButton">  {"Log in"}</button>
    <span> Dont have account ?</span>
-     <button type='submit' className="sloginRegister"><a href="/signup">Sign up</a></button>
+     <button type='submit' className="sloginRegister"><a href="signup">Sign up</a></button>
             </form>
         </div>
     </div>

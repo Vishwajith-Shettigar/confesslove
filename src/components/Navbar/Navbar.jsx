@@ -26,11 +26,11 @@ function Navbar() {
             <div className="navbar-right">
                 <div className="navbar-profile">
 
-               <a href="/" style={{textDecoration:"none",color:"black"}}> <AccountCircleIcon/></a>
+               <a href="/confesslove" style={{textDecoration:"none",color:"black"}}> <AccountCircleIcon/></a>
             
                 </div>
                 <div className="navbar-setting">
-                <a href="/user/setting" style={{textDecoration:"none",color:"black"}}><Settings/></a>
+                <a href="user/setting" style={{textDecoration:"none",color:"black"}}><Settings/></a>
 
 
                 </div>

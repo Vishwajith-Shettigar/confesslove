@@ -109,10 +109,10 @@ if(user)
           <div className="copylink">
 
 
-            <a href={`http://localhost:3000/${user}`}> http://localhost:3000/{user}</a>
+            <a href={`https://vishwajith-shettigar.github.io/confesslove/${user}`}>/confesslove/${user}</a>
 
             
-        <CopyToClipboard text={`http://localhost:3000/${user}`}
+        <CopyToClipboard text={`https://vishwajith-shettigar.github.io/confesslove/${user}`}
           onCopy={() =>{
             
             setcopied(true);
@@ -137,7 +137,7 @@ if(user)
             <div className="facebook">
 
             
-              <FacebookShareButton quote="confessLove" hashtag ="Confess" url='https://www.facebook.com/'>
+              <FacebookShareButton quote="confessLove" hashtag ="Confess" url='https://vishwajith-shettigar.github.io/confesslove/${user}'>
 
               <FacebookRounded style={{ color: "blue" }} />
               </FacebookShareButton>
@@ -145,14 +145,14 @@ if(user)
 
             <div className="instagram" >
 
-              <TelegramShareButton quote=" confessLove "url='https://www.facebook.com/'>
+              <TelegramShareButton quote=" confessLove "url='https://vishwajith-shettigar.github.io/confesslove/${user}'>
 
                    <Telegram style={{ color: "blue" }} />
               </TelegramShareButton>
            
             </div>
             <div className="whatsapp">
-              <WhatsappShareButton  quote="confessLove" hashtag ="Confess" url='https://www.facebook.com/' >
+              <WhatsappShareButton  quote="confessLove" hashtag ="Confess" url='https://vishwajith-shettigar.github.io/confesslove/${user}' >
 
                  <WhatsApp style={{ color: "green" }} />
               </WhatsappShareButton>

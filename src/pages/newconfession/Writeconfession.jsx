@@ -103,7 +103,7 @@ setTheme(e.target.name)
             <div className="writeconfessioncontainer">
                 <div className="writeconfessionsec1">
                     <h1 className='writeconfessiontitle'>no confession room exists named {params.username}</h1>
-                    <p className='writeconfessionsub'> click here to create your own confession room</p>
+                    <p className='writeconfessionsub'> <a href="/confesslove">click here </a>to create your own confession room</p>
                   
                 </div>
                 </div>

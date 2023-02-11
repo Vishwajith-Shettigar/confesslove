@@ -3,8 +3,10 @@ import Navbar from '../../components/Navbar/Navbar'
 import './writeconfession.css'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Skeleton from '../../components/skeleton/Skeleton';
 function Writeconfession() {
     const BP=process.env.REACT_APP_API_KEY;
+    const [loading,setLoading]=useState(true);
 const [username,setUsername]=useState(null)
 const text=useRef();
 const params = useParams();
@@ -18,14 +20,15 @@ const params = useParams();
              const res=await axios.post(BP+`/auth/getwriteuser`,{username:params.username});
             
             setUsername(res.data.username)
+            setLoading(false)
             }
              catch(e) {{
-          
+                setLoading(false)
              }}
             }
           
             getuser();
-    
+          
 
     },[])
 const [theme,setTheme]=useState("eight");
@@ -49,16 +52,26 @@ setTheme(e.target.name)
         try{
             console.log(username,text,theme)
             const res=await axios.post(BP+"/confession/save",{username:username,text:text.current.value,theme:theme});
-           console.log(res)
+          
          
            }
             catch(e) {{
-         console.log(e)
+        
             }}
 
     }
+if(loading)
+{
 
-   if( username!=null && theme && fcolor)
+    return(
+        <>
+       
+          <Skeleton type="write"/>
+        </>
+      
+    )
+}
+  else if( username!=null && theme && fcolor)
     return (
     
         <>
@@ -93,7 +106,7 @@ setTheme(e.target.name)
             </div>
         </>
     )
-    else{
+    else {
         return(
 
             <>

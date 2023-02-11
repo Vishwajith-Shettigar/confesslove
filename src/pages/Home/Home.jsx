@@ -54,9 +54,10 @@ import {
   WhatsappIcon,
   WorkplaceIcon
 } from "react-share";
+import Skeleton from '../../components/skeleton/Skeleton'
 function Home() {
   const {user,setUser}=useContext(globalinfo);
-const [confessions,setConfessions]=useState([]);
+const [confessions,setConfessions]=useState(false);
 const BP=process.env.REACT_APP_API_KEY;
   console.log(user);
 const [copied,setcopied]=useState(false);
@@ -83,19 +84,20 @@ const getcon=async()=>{
   getcon();
 },[user])
  
-
-
-
-if(user)
+if(!user)
+return(
+<Skeleton type="home"/>
+)
+else if(user)
   return (
     <div className = 'Homemain'>
 
-  
+
 
 
     <div className="container">
 
-      <Navbar />
+    <Navbar />
 
       <div className="home">
 
@@ -109,10 +111,10 @@ if(user)
           <div className="copylink">
 
 
-            <a href={`https://vishwajith-shettigar.github.io/confesslove/${user}`}>/confesslove/{user}</a>
+            <a href={`http://localhost:3000/${user}`}>/confesslove/{user}</a>
 
             
-        <CopyToClipboard text={`https://vishwajith-shettigar.github.io/confesslove/${user}`}
+        <CopyToClipboard text={`https://dev.d1r0bzr0q4g1ac.amplifyapp.com/${user}`}
           onCopy={() =>{
             
             setcopied(true);
@@ -169,7 +171,11 @@ if(user)
     <div className="confessions">
 
 <h3>Here is your lovely confessions</h3>
-<div className="confessions-items">
+
+
+{
+
+  <div className="confessions-items">
 
 
 {
@@ -181,6 +187,9 @@ if(user)
   
 }
 </div>
+
+
+}
 </div>
     </div>
   )

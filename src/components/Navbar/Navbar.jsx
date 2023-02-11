@@ -3,9 +3,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { EmojiEmotions, Settings } from '@mui/icons-material';
 import "./navbar.css"
 import { color } from '@mui/system';
+import {  useNavigate } from 'react-router-dom';
 import {useContext} from 'react'
 import {globalinfo} from '../../App'
 function Navbar() {
+    const navigate=useNavigate();
 
     const {removeCookie}=useContext(globalinfo);
 
@@ -26,11 +28,11 @@ function Navbar() {
             <div className="navbar-right">
                 <div className="navbar-profile">
 
-               <a href="/confesslove" style={{textDecoration:"none",color:"black"}}> <AccountCircleIcon/></a>
+               <a href="/" style={{textDecoration:"none",color:"black"}}> <AccountCircleIcon/></a>
             
                 </div>
                 <div className="navbar-setting">
-                <a href="user/setting" style={{textDecoration:"none",color:"black"}}><Settings/></a>
+                <Settings onClick={()=>{navigate("/user/setting")}}/>
 
 
                 </div>

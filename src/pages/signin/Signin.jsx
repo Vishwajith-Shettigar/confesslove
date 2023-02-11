@@ -5,6 +5,7 @@ import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useContext} from 'react'
 import {globalinfo} from '../../App'
+import RefreshIcon from '@mui/icons-material/Refresh';
 function Signin() {
     const {user,setUser,setJwtToken}=useContext(globalinfo)
     const BP=process.env.REACT_APP_API_KEY;
@@ -52,7 +53,7 @@ window.alert("Invalid details")
                 <input minLength={6} required placeholder='Password' type="password" className="sloginInput" ref={password} />
      <button className="sloginButton">  {"Log in"}</button>
    <span> Dont have account ?</span>
-     <button type='submit' className="sloginRegister"><a href="signup">Sign up</a></button>
+     <button type='submit' className="sloginRegister" onClick={()=>{navigate("/signup")}}>Sign up</button>
             </form>
         </div>
     </div>

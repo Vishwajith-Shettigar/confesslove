@@ -72,7 +72,7 @@ window.alert("Username already taken")
                 <input required type="password" ref={comPassword} placeholder='Confirm password' className="sloginInput" />
      <button type='submit' className="sloginButton">Sign up</button>
      <span> Already have account ?</span>
-     <button className="sloginRegister" ><a href="signin"> Log in </a> </button>
+     <button className="sloginRegister" onClick={()=>{navigate("/signin")}}> Log in </button>
             </form>
         </div>
     </div>

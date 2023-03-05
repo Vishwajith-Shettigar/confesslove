@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import React, { useState ,useRef} from 'react'
+import React, { useState ,useRef,useEffect } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './share.css'
 import { render } from 'react-dom'
@@ -61,6 +61,18 @@ var node=document.getElementById('node')
 
 
 function Share() {
+  const preventRefresh = (e) => {
+    return "data will get lost";
+};
+
+useEffect(() => {
+    window.addEventListener('beforeunload', preventRefresh);
+
+    return () => {
+        window.removeEventListener('beforeunload', preventRefresh);
+    }
+}, [])
+
     const {shareconfes,setShareconfes,theme,setTheme}=useContext(globalinfo);
     
     const imageRef = useRef(null);
@@ -106,8 +118,8 @@ const data = {
       type: newFile.type
     })
   ],
-  title: "Nuzlocke",
-  text: "Nuzlocke"
+  title: "Confesslove.online",
+  text: "confess your love to loved one"
 };
 
 try {

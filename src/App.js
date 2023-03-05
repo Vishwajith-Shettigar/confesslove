@@ -14,7 +14,7 @@ export const globalinfo = createContext();
 function App() {
   const BP=process.env.REACT_APP_API_KEY;
 
-  const [user,setUser]=useState(null);
+  const [user,setUser]=useState("");
   const [shareconfes,setShareconfes]=useState(null);
   const [theme,setTheme]=useState("eight");
   const [jwtToken, setJwtToken, removeCookie] = useCookies(["userId"]);
@@ -33,7 +33,7 @@ catch(e){
 }
   }
 getuser()
-})
+},[jwtToken.userId])
   return (
     <globalinfo.Provider value={{ user, setUser,shareconfes,setShareconfes,theme,setTheme,jwtToken,setJwtToken,removeCookie }}>
 

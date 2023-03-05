@@ -57,7 +57,7 @@ import {
 import Skeleton from '../../components/skeleton/Skeleton'
 function Home() {
   const {user,setUser}=useContext(globalinfo);
-const [confessions,setConfessions]=useState(false);
+const [confessions,setConfessions]=useState([]);
 const BP=process.env.REACT_APP_API_KEY;
   console.log(user);
 const [copied,setcopied]=useState(false);
@@ -70,25 +70,24 @@ const getcon=async()=>{
 
 
   try{
+    console.log("i am inside try");
+    console.log(user);
    const res=await axios.get(BP+`/confession/get?username=${user}`);
   
    console.log("res")
    setConfessions(res.data);
-   console.log(confessions[0].text)
+ 
   }
    catch(e) {{
-
+console.log(e.message)
    }}
   }
 
   getcon();
 },[user])
  
-if(!user)
-return(
-<Skeleton type="home"/>
-)
-else if(user)
+
+if(user){
   return (
     <div className = 'Homemain'>
 
@@ -193,6 +192,16 @@ else if(user)
 </div>
     </div>
   )
+}
+else{
+
+
+return(
+<Skeleton type="home"/>
+)
+
+
+}
 }
 
 export default Home

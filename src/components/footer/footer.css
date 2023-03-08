@@ -1,0 +1,21 @@
+.footercont{
+
+
+    height:100px;
+    background-color:rgb(225, 216, 243);
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+
+
+}
+
+@media (max-width:400px){
+    .footercont{
+        padding: 0px;
+font-size: 10px;
+    }
+}

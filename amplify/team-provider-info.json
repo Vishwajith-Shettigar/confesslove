@@ -1,20 +1,20 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-confessloveclient-dev-111705-authRole",
-      "UnauthRoleArn": "arn:aws:iam::229062799267:role/amplify-confessloveclient-dev-111705-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::229062799267:role/amplify-confessloveclient-dev-111705-authRole",
+      "AuthRoleName": "amplify-confesslovefrontend-dev-104535-authRole",
+      "UnauthRoleArn": "arn:aws:iam::048788555449:role/amplify-confesslovefrontend-dev-104535-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::048788555449:role/amplify-confesslovefrontend-dev-104535-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-confessloveclient-dev-111705-deployment",
-      "UnauthRoleName": "amplify-confessloveclient-dev-111705-unauthRole",
-      "StackName": "amplify-confessloveclient-dev-111705",
-      "StackId": "arn:aws:cloudformation:us-east-1:229062799267:stack/amplify-confessloveclient-dev-111705/600e2ae0-9f98-11ed-9e9f-0a0f24060b61",
-      "AmplifyAppId": "d1r0bzr0q4g1ac"
+      "DeploymentBucketName": "amplify-confesslovefrontend-dev-104535-deployment",
+      "UnauthRoleName": "amplify-confesslovefrontend-dev-104535-unauthRole",
+      "StackName": "amplify-confesslovefrontend-dev-104535",
+      "StackId": "arn:aws:cloudformation:us-east-1:048788555449:stack/amplify-confesslovefrontend-dev-104535/f11f72d0-bbdd-11ed-8184-122d622f4417",
+      "AmplifyAppId": "d3l62ggyqt4gyg"
     },
     "categories": {
       "hosting": {
         "amplifyhosting": {
-          "appId": "d1r0bzr0q4g1ac",
+          "appId": "d3l62ggyqt4gyg",
           "type": "manual"
         }
       }

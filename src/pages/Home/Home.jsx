@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import Confession from '../../components/confession/Confession'
 import Navbar from '../../components/Navbar/Navbar'
 import './home.css'
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {useContext} from 'react'
-import {globalinfo} from '../../App'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useContext } from 'react'
+import { globalinfo } from '../../App'
 import axios from 'axios'
 
 import {
@@ -55,153 +55,161 @@ import {
   WorkplaceIcon
 } from "react-share";
 import Skeleton from '../../components/skeleton/Skeleton'
+import Footer from '../../components/footer/Footer'
 function Home() {
-  const {user,setUser}=useContext(globalinfo);
-const [confessions,setConfessions]=useState([]);
-const BP=process.env.REACT_APP_API_KEY;
+  const { user, setUser } = useContext(globalinfo);
+  const [confessions, setConfessions] = useState([]);
+  const BP = process.env.REACT_APP_API_KEY;
   console.log(user);
-const [copied,setcopied]=useState(false);
+  const [copied, setcopied] = useState(false);
 
 
-useEffect(()=>{
+  useEffect(() => {
 
-const getcon=async()=>{
-
-
-
-  try{
-    console.log("i am inside try");
-    console.log(user);
-   const res=await axios.get(BP+`/confession/get?username=${user}`);
-  
-   console.log("res")
-   setConfessions(res.data);
- 
-  }
-   catch(e) {{
-console.log(e.message)
-   }}
-  }
-
-  getcon();
-},[user])
- 
-
-if(user){
-  return (
-    <div className = 'Homemain'>
+    const getcon = async () => {
 
 
 
+      try {
+        console.log("i am inside try");
+        console.log(user);
+        const res = await axios.get(BP + `/confession/get?username=${user}`);
 
-    <div className="container">
+        console.log("res")
+        setConfessions(res.data);
 
-    <Navbar />
-
-      <div className="home">
-
-        <div className="usernamesection">
-
-          <h3>Hola {user}</h3>
-        </div>
-        <div className="linkcopysection">
-
-          <p>here is your link where everyone can confess</p>
-          <div className="copylink">
-
-
-            <a href={`http://localhost:3000/${user}`}>/confesslove/{user}</a>
-
-            
-        <CopyToClipboard text={`https://dev.d1r0bzr0q4g1ac.amplifyapp.com/${user}`}
-          onCopy={() =>{
-            
-            setcopied(true);
-           setTimeout(()=>{setcopied(false)
-          
-          },3000)
-           
-           }}
-           >
-      {   !copied ?<ContentCopyOutlined />: <span>copied</span>
       }
-        </CopyToClipboard>
-            
+      catch (e) {
+        {
+          console.log(e.message)
+        }
+      }
+    }
+
+    getcon();
+  }, [user])
+
+
+  if (user) {
+    return (
+      <div className='Homemain'>
+
+
+
+
+        <div className="container">
+
+          <Navbar />
+
+          <div className="home">
+
+            <div className="usernamesection">
+
+              <h3>Hola {user}</h3>
+            </div>
+            <div className="linkcopysection">
+
+              <p>here is your link where everyone can confess</p>
+              <div className="copylink">
+
+
+                <a href={`https://confesslove.online/${user}`}>/confesslove/{user}</a>
+
+
+                <CopyToClipboard text={`https://confesslove.online/${user}`}
+                  onCopy={() => {
+
+                    setcopied(true);
+                    setTimeout(() => {
+                      setcopied(false)
+
+                    }, 3000)
+
+                  }}
+                >
+                  {!copied ? <ContentCopyOutlined /> : <span>copied</span>
+                  }
+                </CopyToClipboard>
+
+              </div>
+            </div>
+
+            <div className="linkssharesection">
+              <h4>share with social media</h4>
+              <div className="socialmedia">
+
+
+                <div className="facebook">
+
+
+                  <FacebookShareButton title="confesslove.online                        Want to confess something to me ? here is the door way " quote="confessLove" hashtag="Confess" url={`https://confesslove.online/${user}`}>
+
+                    <FacebookRounded style={{ color: "blue" }} />
+                  </FacebookShareButton>
+                </div>
+
+                <div className="instagram" >
+
+                  <TelegramShareButton titke=" confesslove.online                        Want to confess something to me ? here is the door way " quote="confessLove" url={`https://confesslove.online/${user}`}>
+
+                    <Telegram style={{ color: "blue" }} />
+                  </TelegramShareButton>
+
+                </div>
+                <div className="whatsapp">
+                  <WhatsappShareButton title=" confesslove.online                        Want to confess something to me ? here is the door way " quote="confessLove" hashtag="Confess" url={`https://confesslove.online/${user}`} >
+
+                    <WhatsApp style={{ color: "green" }} />
+                  </WhatsappShareButton>
+
+                </div>
+
+              </div>
+            </div>
+
           </div>
+
         </div>
 
-        <div className="linkssharesection">
-          <h4>share with social media</h4>
-          <div className="socialmedia">
+
+        <div className="confessions">
+
+          <h3>Here is your lovely confessions</h3>
 
 
-            <div className="facebook">
+          {
 
-            
-              <FacebookShareButton quote="confessLove" hashtag ="Confess" url={`https://vishwajith-shettigar.github.io/confesslove/${user}`}>
+            <div className="confessions-items">
 
-              <FacebookRounded style={{ color: "blue" }} />
-              </FacebookShareButton>
+
+              {
+
+                confessions.map((c) => (
+
+                  <Confession c={c} />
+                ))
+
+              }
             </div>
 
-            <div className="instagram" >
 
-              <TelegramShareButton quote=" confessLove "url={`https://vishwajith-shettigar.github.io/confesslove/${user}`}>
-
-                   <Telegram style={{ color: "blue" }} />
-              </TelegramShareButton>
-           
-            </div>
-            <div className="whatsapp">
-              <WhatsappShareButton title="confesslove" quote="confessLove" hashtag ="Confess" url={`https://vishwajith-shettigar.github.io/confesslove/${user}`} >
-
-                 <WhatsApp style={{ color: "green" }} />
-              </WhatsappShareButton>
-             
-            </div>
-
-          </div>
+          }
         </div>
 
+ <Footer/>
       </div>
-    </div>
-
-    
-    <div className="confessions">
-
-<h3>Here is your lovely confessions</h3>
+     
+    )
+  }
+  else {
 
 
-{
-
-  <div className="confessions-items">
-
-
-{
-
-  confessions.map((c)=>(
-
-    <Confession c={c} />
-))
-  
-}
-</div>
+    return (
+      <Skeleton type="home" />
+    )
 
 
-}
-</div>
-    </div>
-  )
-}
-else{
-
-
-return(
-<Skeleton type="home"/>
-)
-
-
-}
+  }
 }
 
 export default Home

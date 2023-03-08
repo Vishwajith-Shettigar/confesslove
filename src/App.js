@@ -10,6 +10,7 @@ import Signin from './pages/signin/Signin';
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
 import Setting from './pages/setting/Setting';
+import Createlove from './pages/CreateLove/Createlove';
 export const globalinfo = createContext();
 function App() {
   const BP=process.env.REACT_APP_API_KEY;
@@ -17,14 +18,14 @@ function App() {
   const [user,setUser]=useState("");
   const [shareconfes,setShareconfes]=useState(null);
   const [theme,setTheme]=useState("eight");
-  const [jwtToken, setJwtToken, removeCookie] = useCookies(["userId"]);
+  const [jwtToken, setJwtToken, removeCookie] = useCookies(["confessloveSession"]);
 console.log(jwtToken);
 
 useEffect(()=>{
 
   const getuser=async()=>{
 try{
-const res=await axios.post(BP+"/auth/getuser",{id:jwtToken.userId})
+const res=await axios.post(BP+"/auth/getuser",{id:jwtToken.confessloveSession})
 setUser(res.data.username);
 }
 catch(e){
@@ -33,7 +34,7 @@ catch(e){
 }
   }
 getuser()
-},[jwtToken.userId])
+},[jwtToken.confessloveSession])
   return (
     <globalinfo.Provider value={{ user, setUser,shareconfes,setShareconfes,theme,setTheme,jwtToken,setJwtToken,removeCookie }}>
 
@@ -48,7 +49,7 @@ getuser()
   <Route
             path="/"
             element={ 
-            !jwtToken.userId?<Signin/>: <Home/>
+            !jwtToken.confessloveSession?<Signin/>: <Home/>
             }
           ></Route>
 <Route
@@ -73,7 +74,7 @@ getuser()
           <Route
             path="/user/setting"
             element={
-              !jwtToken.userId?<Signin/>: <Setting/>
+              !jwtToken.confessloveSession?<Signin/>: <Setting/>
             }
           ></Route>
 <Route
@@ -82,6 +83,13 @@ getuser()
              <Writeconfession/>
             }
           ></Route>
+
+{/* <Route
+            path="/confesslove"
+            element={
+             <Createlove/>
+            }
+          ></Route> */}
   </Routes>
     </div>
   

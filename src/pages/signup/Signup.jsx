@@ -39,7 +39,7 @@ const handleLogin=async(e)=>
         if(res!=403 && res!=500)
         {
             setUser(res.data.username);
-            setJwtToken("userId",res.data._id,{maxAge: 172800});
+            setJwtToken("confessloveSession",res.data._id,{maxAge: 172800});
             navigate("/")
         }
 

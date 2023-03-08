@@ -3,8 +3,10 @@ import Navbar from '../../components/Navbar/Navbar'
 import './writeconfession.css'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Skeleton from '../../components/skeleton/Skeleton';
 function Writeconfession() {
+    const navigate=useNavigate();
     const BP=process.env.REACT_APP_API_KEY;
     const [loading,setLoading]=useState(true);
 const [username,setUsername]=useState(null)
@@ -53,6 +55,9 @@ setTheme(e.target.name)
             console.log(username,text,theme)
             const res=await axios.post(BP+"/confession/save",{username:username,text:text.current.value,theme:theme});
           
+            if(res)
+            window.alert("shared")
+            navigate("/");
          
            }
             catch(e) {{
@@ -82,7 +87,7 @@ if(loading)
                 <div className="writeconfessionsec1">
                     <h1 className='writeconfessiontitle'>Confess your love to {username}</h1>
                     <p className='writeconfessionsub'> Your identity is not revealed or stored </p>
-                    <textarea ref={text} maxLength={800}  style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}} className="writeconfession" placeholder="confess your love to {   }" />
+                    <textarea ref={text} maxLength={800}  style={{backgroundImage: "url(" +  process.env.PUBLIC_URL+"/assets/images/"+theme+".png"  + ")", color:fcolor}} className="writeconfession" placeholder={`confess your love to ${params.username}`} />
                     <button className="writeconfessionbtn" onClick={()=>share()}>Share </button>
                 </div>
  
@@ -116,7 +121,7 @@ if(loading)
             <div className="writeconfessioncontainer">
                 <div className="writeconfessionsec1">
                     <h1 className='writeconfessiontitle'>no confession room exists named {params.username}</h1>
-                    <p className='writeconfessionsub'> <a href="/confesslove">click here </a>to create your own confession room</p>
+                    <p className='writeconfessionsub'> <a href="/">click here </a>to create your own confession room</p>
                   
                 </div>
                 </div>
